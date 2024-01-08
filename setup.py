@@ -5,13 +5,13 @@ import setuptools
 import sys
 
 try:
-    import nmg
+    import notemanager 
 except ImportError:
     print("Error importing notemanager.")
     sys.exit(1)
 
 LONG_DESCRIPTION = open("README.md").read()
-VERSION = nmg.__VERSION__
+VERSION = notemanager.__VERSION__
 
 
 def main() -> None:
