@@ -4,7 +4,7 @@
 from notemanager.courses import Courses
 
 
-def main():
+def main() -> None:
     for course in Courses():
         course.compile_mega()
 

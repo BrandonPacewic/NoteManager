@@ -4,6 +4,7 @@
 import subprocess
 
 from pathlib import Path
+from typing import List
 
 from notemanager.core import NOTES_ROOT
 from notemanager.lecture import Lecture
@@ -27,7 +28,7 @@ class Course:
         studio or recitation. Doing so will mess up the order that those appear in.
         """
         header, body, footer = get_mega_header_body_footer(self.mega_file)
-        new_body = []
+        new_body: List[str] = []
         j = 0
 
         for i, line in enumerate(body):
@@ -55,6 +56,18 @@ class Course:
 
         header_text = "".join(header)
         body_text = "".join(new_body)
+        footer_text = "".join(footer)
+        self.mega_file.write_text(f"{header_text}{body_text}{footer_text}")
+
+    def add_lecture_to_mega(self, lecture: Lecture) -> None:
+        """
+        Used for adding a new lecture subfile, will not mess up the rest of the mega.
+        Will only add a new subfile line at the end of the body.
+        """
+        header, body, footer = get_mega_header_body_footer(self.mega_file)
+        body.append(lecture.include_string)
+        header_text = "".join(header)
+        body_text = "".join(body)
         footer_text = "".join(footer)
         self.mega_file.write_text(f"{header_text}{body_text}{footer_text}")
 

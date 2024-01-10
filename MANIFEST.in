@@ -1,0 +1,6 @@
+include notemanager/config/default.ini
+include notemanager/templates/*.tex
+include notemanager/**/*.py
+include COPYRIGHT.txt
+include LICENSE.txt
+include README.md

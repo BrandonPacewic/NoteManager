@@ -1,9 +1,13 @@
 # Copyright (c) Brandon Pacewic
 # SPDX-License-Identifier: MIT
 
+import os
+
 from enum import Enum
 from pathlib import Path
 from typing import List, Tuple
+
+from notemanager.core import OS
 
 
 def get_mega_header_body_footer(
@@ -36,3 +40,14 @@ def lecture_number_to_filename(number: int) -> str:
 
 def lecture_filename_to_number(filename: str) -> int:
     return int(filename.replace(".tex", "").replace("lecture_", ""))
+
+
+def copy_file(input_file: str, output_file: str) -> None:
+    if OS == "Windows":
+        os.system(f"copy {input_file} {output_file}")
+    else:
+        os.system(f"cp {input_file} {output_file}")
+
+
+def link_file(input_file: str, output_file: str) -> None:
+    os.system(f"ln {input_file} {output_file}")
