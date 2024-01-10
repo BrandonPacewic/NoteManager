@@ -9,7 +9,8 @@ from notemanager.util import copy_file
 
 CONFIG_DICT: dict[str, dict[str, str]] = {
     "mega": {
-        # Determines weather or not your template preamble should be linked or copied when making a new course.
+        # Determines weather or not your template preamble should be linked or
+        # copied when making a new course.
         "link_preamble": "false"
     }
 }

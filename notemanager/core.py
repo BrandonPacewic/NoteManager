@@ -9,7 +9,7 @@ from pathlib import Path
 HOME = os.getenv("HOME", os.getenv("USERPROFILE"))
 XDG_CONFIG_DIR = os.getenv("XDG_CONFIG_HOME", os.path.join(HOME, ".config"))
 
-CONFIG_DIR = os.getenv("NOTEMANAGER_CONFIG_DIR", os.path.join(XDG_CONFIG_DIR, "notemanager"))
+CONFIG_DIR = os.path.join(XDG_CONFIG_DIR, "notemanager")
 NOTES_ROOT = Path("~/Documents/Repos/Notes/OSU/").expanduser()
 MODULE_DIR = os.path.dirname(__file__)
 
