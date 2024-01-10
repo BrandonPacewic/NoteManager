@@ -5,19 +5,17 @@ import setuptools
 import sys
 
 try:
-    import notemanager 
+    import notemanager
 except ImportError:
     print("Error importing notemanager.")
     sys.exit(1)
 
 LONG_DESCRIPTION = open("README.md").read()
-VERSION = notemanager.__VERSION__
 
 
 def main() -> None:
     setuptools.setup(
         name="notemanager",
-        version=VERSION,
         author="Brandon Pacewic",
         description="A LaTex note manager.",
         long_description_content_type="text/markdown",
@@ -27,10 +25,10 @@ def main() -> None:
         packages=["notemanager"],
         entry_points={
             "console_scripts": [
-                "notemanager=nmg.__main__:main",
+                "compile_all_megas=notemanager.compile_all_megas:main",
             ]
         },
-        python_requires=">=3.6",
+        python_requires=">=3.11",
         include_package_data=True,
     )
 

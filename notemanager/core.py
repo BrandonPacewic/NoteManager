@@ -1,4 +1,6 @@
 # Copyright (c) Brandon Pacewic
 # SPDX-License-Identifier: MIT
 
-__version__ = "0.1"
+from pathlib import Path
+
+NOTES_ROOT = Path("~/Documents/Repos/Notes/OSU/").expanduser()

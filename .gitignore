@@ -1,2 +1,6 @@
 # Copyright (c) Brandon Pacewic
 # SPDX-License-Identifier: MIT
+
+build/
+__pycache__/
+notemanager.egg-info/
