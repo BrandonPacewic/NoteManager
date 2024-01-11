@@ -22,7 +22,6 @@ def main(args: List[str] = sys.argv[1:]) -> None:
     if not standalone_name.endswith(".tex"):
         standalone_name += ".tex"
 
-    print(os.getcwd())
     path = Path(os.getcwd())
 
     if (path / standalone_name).exists():
