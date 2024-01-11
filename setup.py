@@ -28,6 +28,7 @@ def main() -> None:
                 "compile_all_megas=notemanager.compile_all_megas:main",
                 "new_course=notemanager.new_course:main",
                 "new_lecture=notemanager.new_lecture:main",
+                "new_standalone=notemanager.new_standalone:main",
             ]
         },
         python_requires=">=3.11",

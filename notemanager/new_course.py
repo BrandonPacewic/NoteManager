@@ -1,10 +1,9 @@
 # Copyright (c) Brandon Pacewic
 # SPDX-License-Identifier: MIT
 
-import sys
 import os
+import sys
 
-from pathlib import Path
 from typing import List
 
 import notemanager.new_lecture
