@@ -33,8 +33,6 @@ def main(args: List[str] = sys.argv[1:]) -> None:
         f"{os.getcwd()}/{standalone_name}"
     )
 
-    print("Here 2")
-
     if not (path / "preamble.tex").exists():
         if CONFIG.get("main", "link_preamble") == "true":
             link_file(
