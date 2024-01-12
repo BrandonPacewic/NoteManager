@@ -8,7 +8,7 @@ from typing import List
 
 from notemanager.core import NOTES_ROOT
 from notemanager.lecture import Lecture
-from notemanager.util import get_mega_header_body_footer, lecture_number_to_filename
+from notemanager.util import get_mega_header_body_footer, number_to_filename
 
 
 class Course:
@@ -17,6 +17,14 @@ class Course:
         self.name = path.stem
         self.lectures = sorted(
             [Lecture(file) for file in path.glob("lecture_*.tex")],
+            key=lambda lecture: lecture.number
+        )
+        self.recitations = sorted(
+            [Lecture(file) for file in path.glob("recitation_*.tex")],
+            key=lambda lecture: lecture.number
+        )
+        self.studios = sorted(
+            [Lecture(file) for file in path.glob("studio_*.tex")],
             key=lambda lecture: lecture.number
         )
 
@@ -42,7 +50,7 @@ class Course:
                 pass
 
             try:
-                if lecture_number_to_filename(self.lectures[j].number) in line:
+                if number_to_filename(self.lectures[j].number) in line:
                     j += 1
             except IndexError:
                 # All lecture files are imported in the new body.

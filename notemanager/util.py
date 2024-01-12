@@ -18,7 +18,7 @@ def get_mega_header_body_footer(
 
     with mega_file_path.open() as file:
         for line in file:
-            if part == _Parts.BODY and r"\Endlectures" in line:
+            if part == _Parts.BODY and r"\endlectures" in line.lower():
                 part = _Parts.FOOTER
 
             if part == _Parts.HEADER:
@@ -28,18 +28,19 @@ def get_mega_header_body_footer(
             elif part == _Parts.FOOTER:
                 footer.append(line)
 
-            if r"\Startlectures" in line:
+            if r"\startlectures" in line.lower():
                 part = _Parts.BODY
 
     return (header, body, footer)
 
 
-def lecture_number_to_filename(number: int) -> str:
-    return f"lecture_{number:02d}.tex"
+def number_to_filename(number: int, filename_base: str |
+                       None = "lecture_") -> str:
+    return f"{filename_base}{number:02d}.tex"
 
 
-def lecture_filename_to_number(filename: str) -> int:
-    return int(filename.replace(".tex", "").replace("lecture_", ""))
+def filename_to_number(filename: str, filename_base: str = "lecture_") -> int:
+    return int(filename.replace(".tex", "").replace(filename_base, ""))
 
 
 def copy_file(input_file: str, output_file: str) -> None:
